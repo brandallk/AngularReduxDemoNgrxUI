@@ -1,0 +1,42 @@
+<div class="container">
+
+  <h3>Restaurant Sections:</h3>
+  <ngb-tabset>
+    <ngb-tab *ngFor="let section of sections | async" title="{{ section.Name }}">
+      <ng-template ngbTabContent>
+        
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>
+                <fa-icon [icon]="faPlusCircle" title="add table" class="icon-btn add-table" (click)="addTable(section)"></fa-icon>
+              </th>
+              <th>Table #</th>
+              <th>Server</th>
+              <th>Orders</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let table of section.Tables">
+              <td>
+                <fa-icon [icon]="faMinusCircle" title="remove table" class="icon-btn remove-table" (click)="removeTable(table)"></fa-icon>
+              </td>
+              <td>{{ table.Id }}</td>
+              <td class="server">
+                {{ table.ServerName }}
+                <!-- <fa-icon [icon]="faPencilAlt" title="edit" class="icon-btn edit"></fa-icon> -->
+              </td>
+              <td>
+                <button class="btn btn-primary btm-sm" (click)="editOrders(table)">view & edit</button>
+                <!-- <fa-icon [icon]="faEye" title="view" class="icon-btn view" (click)="editOrders(table)"></fa-icon> -->
+                <!-- <fa-icon [icon]="faPencilAlt" title="edit" class="icon-btn edit"></fa-icon> -->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+
+</div>

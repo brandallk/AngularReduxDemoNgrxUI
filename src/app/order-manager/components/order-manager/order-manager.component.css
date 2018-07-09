@@ -1,0 +1,43 @@
+.table {
+  border: lightgrey solid thin;
+  border-top: none;
+  box-shadow: 0 4px 6px lightgrey;
+}
+
+.server {
+  display: flex;
+  justify-content: space-between;
+  max-width: 8rem;
+}
+
+.icon-btn:hover {
+  cursor: pointer;
+}
+
+.add-table {
+  color: rgb(0, 185, 0);
+}
+
+.add-table:hover {
+  color: rgb(1, 116, 1);
+}
+
+.remove-table {
+  color: rgb(255, 65, 65);
+}
+
+.remove-table:hover {
+  color: rgb(209, 0, 0);
+}
+
+.view {
+  margin-right: 2rem;
+}
+
+.edit, .view {
+  color: rgb(67, 67, 255);
+}
+
+.edit:hover, .view:hover {
+  color: rgb(0, 0, 212);
+}

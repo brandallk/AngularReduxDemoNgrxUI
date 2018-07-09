@@ -1,0 +1,12 @@
+.order {
+  display: flex;
+}
+
+.remove-order {
+  color: rgb(255, 65, 65);
+}
+
+.remove-order:hover {
+  color: rgb(209, 0, 0);
+  cursor: pointer;
+}

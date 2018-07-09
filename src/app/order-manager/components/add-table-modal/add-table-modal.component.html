@@ -1,0 +1,18 @@
+<div class="modal-header">
+    <h4 class="modal-title">Assign New Table</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Section: {{ sectionName }}</p>
+    <p>Tables filled: {{ tablesFilled }}</p>
+    <p>Tables available: {{ tablesAvailable }}</p>
+    <select [(ngModel)]="selectedServerId">
+      <option *ngFor="let server of servers | async" [value]="server.Id">{{ server.Name }}</option>
+    </select>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-dark" (click)="assign()" [disabled]="!tablesAvailable">Assign</button>
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Cancel</button>
+  </div>

@@ -1,0 +1,42 @@
+<div class="modal-header">
+  <h4 class="modal-title">Table #{{ tableId }} Orders</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+
+  <form class="p-3 mb-3">
+    <h5>Add an Order</h5>
+    <div class="form-group mt-2">
+      <label for="food-item">Meal: </label>
+      <input id="food-item" class="form-control" type="text" [(ngModel)]="mealDescription" name="mealDescription">
+    </div>
+    <div class="form-group mt-2">
+      <label for="drink-item">Drink: </label>
+      <input id="drink-item" class="form-control" type="text" [(ngModel)]="drinkDescription" name="drinkDescription">
+    </div>
+    <button type="button" class="btn btn-primary btn-sm" (click)="AddOrder()">Add</button>
+  </form>
+
+  <ul class="orders list-group">
+    <li class="order list-group-item" *ngFor="let order of orders | async">
+      <div class="order-item mr-4" *ngFor="let mealItem of order.MealItems">
+        <fa-icon [icon]="faUtensils" title="meal item"></fa-icon>
+        {{ mealItem.Name }}
+      </div>
+      <div class="order-item mr-4" *ngFor="let drinkItem of order.DrinkItems">
+        <fa-icon [icon]="faBeer" title="drink item"></fa-icon>
+        {{ drinkItem.Name }}
+      </div>
+      <div class="order-action ml-auto mr-4">
+        <fa-icon [icon]="faMinusCircle" title="remove order" class="icon-btn remove-order" (click)="removeOrder(order)"></fa-icon>
+      </div>
+    </li>
+  </ul>
+
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>
+  
